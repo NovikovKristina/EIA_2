@@ -1,7 +1,7 @@
 //Aufgabe: Aufgabe 1
 //Name: Kristina Novikov
 //Matrikel: 254136
-//Datum: 12.10.2017
+//Datum: 13.10.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 
 
