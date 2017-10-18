@@ -1,0 +1,27 @@
+/*Smartphone*/
+canvas {
+	width: 100%;
+}
+
+/*Desktop*/
+@media screen and (min-width: 64em) {
+	canvas {
+		height: 600px;
+		width: 800px;
+	}
+}
+
+/*Tablet Portrait*/
+@media screen and (min-width:35.625em) {
+	canvas {
+		width: 99%;
+	}
+}
+
+/*Tablet Landscape*/
+@media screen and (min-width:48em) {
+	canvas {
+		height: 600px;
+		width: 800px;
+	}
+}
