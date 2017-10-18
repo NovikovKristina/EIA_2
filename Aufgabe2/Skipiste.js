@@ -402,4 +402,4 @@ var Aufgabe2;
         }
     }
 })(Aufgabe2 || (Aufgabe2 = {}));
-//# sourceMappingURL=Skipiste2.js.map
+//# sourceMappingURL=Skipiste.js.map
