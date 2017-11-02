@@ -1,0 +1,73 @@
+#topbar {
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color: #404040;
+	margin: -1%;
+	padding: 0.02% 0% 1.2% 90%;
+}
+
+#contact li {
+	list-style: none;
+	display: inline-block;
+}
+
+#header {
+	background-color: #f2f2f2;
+	margin: -12% -1% -1% -1%;
+}
+
+#logo {
+	margin-top: 10%;
+	margin-left: 7%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+
+#KristinaNovikov {
+	margin-top: -3%;
+	margin-left: 4%;
+	font-size: 25px;
+	font-family: 'Homemade Apple', cursive;
+}
+
+nav ul {
+	font-family: 'Amatic SC', cursive;
+	font-size: 26px;
+	margin-top: -9%;
+	margin-left: 60%;
+	magin-bottom: -2%;
+	padding: 0% 0% 0% -30%;
+}
+
+nav li {
+	list-style: none;
+	font-weight: bold;
+	margin: 5% -25% 5% 32%;
+	padding: 0% -1% 0% -7%;
+	display: inline-block;
+}
+
+nav a {
+	text-decoration: none;
+	color: black;
+}
+
+#bottombar {
+	background-color: #cccccc;
+	margin: -1% 0% 0% 0%;
+	padding: 0.4%;
+}
+
+#aboutMe {
+	background-color: #f8f8f8;
+	margin: 7%;
+	padding: 2%;
+}
+
+h1 {
+	font-family: 'Amatic SC', cursive;
+}
+
+p {
+	font-family: 'Khula', sans-serif;
+}

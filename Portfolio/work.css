@@ -1,0 +1,174 @@
+#topbar {
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color: #404040;
+	margin: -1%;
+	padding: 0.02% 0% 1.2% 90%;
+}
+
+#contact li {
+	list-style: none;
+	display: inline-block;
+}
+
+#header {
+	background-color: #f2f2f2;
+	margin: -12% -1% -1% -1%;
+}
+
+#logo {
+	margin-top: 10%;
+	margin-left: 7%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+
+#KristinaNovikov {
+	margin-top: -3%;
+	margin-left: 4%;
+	font-size: 25px;
+	font-family: 'Homemade Apple', cursive;
+}
+
+nav ul {
+	font-family: 'Amatic SC', cursive;
+	font-size: 26px;
+	margin-top: -9%;
+	margin-left: 60%;
+	magin-bottom: -2%;
+	padding: 0% 0% 0% -30%;
+}
+
+nav li {
+	list-style: none;
+	font-weight: bold;
+	margin: 5% -25% 5% 32%;
+	padding: 0% -1% 0% -7%;
+	display: inline-block;
+}
+
+nav a {
+	text-decoration: none;
+	color: black;
+}
+
+#bottombar {
+	background-color: #cccccc;
+	margin: -1% 0% 0% 0%;
+	padding: 0.4%;
+}
+
+
+h2 {
+	font-family: 'Khula', sans-serif;
+	text-align: center;
+	margin-top: 5%;
+}
+
+h3 {
+	font-family: 'Khula', sans-serif;
+	text-align: left;
+	margin-top: 4%;
+	margin-left: 2.7%;
+}
+
+.box {
+	position: relative;
+    width: 280px;
+    height: 250px;
+    border: 5px solid #e6e6e6;
+    margin: 0.5% 0% 2% 2.7%;
+    display: inline-block;
+}
+
+.box2 {
+	position: relative;
+    width: 250px;
+    height: 280px;
+    border: 5px solid #e6e6e6;
+    margin: 0.5% 2% 2% 2.7%;
+    display: inline-block;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 280px;
+  height: 250px;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.image2 {
+  opacity: 1;
+  display: block;
+  width: 250px;
+  height: 280px;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  width: 280px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.middle2 {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  width: 250px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%)
+}
+
+.box:hover .image {
+  opacity: 0.3;
+}
+
+.box2:hover .image2 {
+  opacity: 0.3;
+}
+
+.box:hover .middle {
+  opacity: 1;
+}
+
+.box2:hover .middle2 {
+  opacity: 1;
+}
+
+.text {
+  background-color: #737373;
+  color: white;
+  font-family: 'Khula', sans-serif;
+  font-size: 16px;
+  padding: 16px 32px;
+  text-align: center;
+}
+
+.text2 {
+  background-color: #737373;
+  color: white;
+  font-family: 'Khula', sans-serif;
+  font-size: 16px;
+  padding: 16px 32px;
+  text-align: center;
+}
+
+.link {
+	text-decoration: none;
+	color: white;
+}
+
+#flightlines {
+	margin-top: 4%;
+}
