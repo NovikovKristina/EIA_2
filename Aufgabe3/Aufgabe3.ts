@@ -1,21 +1,21 @@
-//Aufgabe: Aufgabe 2
+//Aufgabe: Aufgabe 3
 //Name: Kristina Novikov
 //Matrikel: 254136
-//Datum: 28.10.2017
+//Datum: 3.11.2017
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 
 namespace Aufgabe3 {
 
     window.addEventListener("load", init);
     let crc2: CanvasRenderingContext2D;
-    let WolkeX: number[] = [];
-    let WolkeY: number[] = [];
-    let SkifahrerX: number[] = [];
-    let SkifahrerY: number[] = [];
-    let SchneeflockenX: number[] = [];
-    let SchneeflockenY: number[] = [];
-    let LiftX: number[] = [];
-    let LiftY: number[] = [];
+    let wolkeX: number[] = [];
+    let wolkeY: number[] = [];
+    let skifahrerX: number[] = [];
+    let skifahrerY: number[] = [];
+    let schneeflockenX: number[] = [];
+    let schneeflockenY: number[] = [];
+    let liftX: number[] = [0];
+    let liftY: number[] = [150];
     let image: ImageData;
 
     function init(): void {
@@ -212,29 +212,6 @@ namespace Aufgabe3 {
             drawTree(x, y, "#088A29");
         }
 
-        //Tannen Funktion//
-        function drawTree(_x: number, _y: number, _color: string): void {
-            //Oberer Teil
-            crc2.beginPath();
-            crc2.moveTo(_x, _y);
-            crc2.lineTo(_x + 15, _y - 26);
-            crc2.lineTo(_x + 30, _y);
-            crc2.strokeStyle = _color;
-            crc2.stroke();
-            crc2.fillStyle = _color;
-            crc2.fill();
-            crc2.closePath();
-            //Unterer Teil
-            crc2.beginPath();
-            crc2.moveTo(_x + 2, _y - 14);
-            crc2.lineTo(_x + 15, _y - 36);
-            crc2.lineTo(_x + 28, _y - 14);
-            crc2.strokeStyle = _color;
-            crc2.stroke();
-            crc2.fillStyle = _color;
-            crc2.fill();
-            crc2.closePath();
-        }
 
         //Schneemann//
         //Körper
@@ -308,47 +285,36 @@ namespace Aufgabe3 {
         crc2.closePath();
 
 
-
-        // Animation //     
+   
 
         //Hintergrund speichern
         image = crc2.getImageData(0, 0, canvas.width, canvas.height);
 
-        //Startposition Wolke 1
-        for (let i: number = 0; i < 1; i++) {
-            WolkeX[0] = 175;
-            WolkeY[0] = 65;
-        }
-        
-        //Startposition Wolke 2
-        for (let i: number = 0; i < 1; i++) {
-            WolkeX[1] = 735;
-            WolkeY[1] = 55;
-        }
-        
-        //Startposition Lift
-        for (let i: number = 0; i < 1; i ++) {
-            LiftX[i] = 0;
-            LiftY[i] = 150;
+        //Random Startposition Wolken
+        for (let i: number = 0; i < 2; i++) {
+            wolkeX[i] = Math.random() * canvas.width;
+            wolkeY[i] = Math.random() * 65 + 45;
         }
 
         //Startposition Skifahrer
-        for (let i: number = 0; i < 1; i++) {
-            SkifahrerX[i] = 750;
-            SkifahrerY[i] = 492;
+        for (let i: number = 0; i < 3; i++) {
+            skifahrerX[i] = Math.random() * canvas.width;
+            skifahrerY[i] = (Math.random() * 7) + 490;
         }
-        
+
         //Startposition Schneeflocken
         for (let i: number = 0; i < 80; i++) {
-            SchneeflockenX[i] = 0 + Math.random() * canvas.width;
-            SchneeflockenY[i] = 0 + Math.random() * 450;
+            schneeflockenX[i] = 0 + Math.random() * canvas.width;
+            schneeflockenY[i] = 0 + Math.random() * 450;
         }
 
         animate();
-        //window.setTimeout(animate, 150);
 
     }//Ende der Init-Funktion
+
     
+    
+    // Funktionen //
 
     //Wolken Funktion//
     function drawCloud(_x: number, _y: number, _radius: number, _startAngle: number, _endAngle: number, _color: string): void {
@@ -389,7 +355,7 @@ namespace Aufgabe3 {
         crc2.fill();
         crc2.closePath();
     }
-    
+
 
     //Skilift Funktion//
     function drawLift(_x: number, _y: number): void {
@@ -442,7 +408,31 @@ namespace Aufgabe3 {
         crc2.stroke();
         crc2.closePath();
     }
-    
+
+    //Tannen Funktion//
+    function drawTree(_x: number, _y: number, _color: string): void {
+        //Oberer Teil
+        crc2.beginPath();
+        crc2.moveTo(_x, _y);
+        crc2.lineTo(_x + 15, _y - 26);
+        crc2.lineTo(_x + 30, _y);
+        crc2.strokeStyle = _color;
+        crc2.stroke();
+        crc2.fillStyle = _color;
+        crc2.fill();
+        crc2.closePath();
+        //Unterer Teil
+        crc2.beginPath();
+        crc2.moveTo(_x + 2, _y - 14);
+        crc2.lineTo(_x + 15, _y - 36);
+        crc2.lineTo(_x + 28, _y - 14);
+        crc2.strokeStyle = _color;
+        crc2.stroke();
+        crc2.fillStyle = _color;
+        crc2.fill();
+        crc2.closePath();
+    }
+
 
     //Schneeflocken Funktionen//
     function drawSnowflake1(_x: number, _y: number, _radius: number, _startAngle: number, _endAngle: number, _color: string): void {
@@ -526,8 +516,9 @@ namespace Aufgabe3 {
         crc2.closePath();
     }
 
-    
-    
+
+    // Animation //
+
     //Animation Wolken//
     function animate(): void {
         console.log("Timeout");
@@ -535,55 +526,51 @@ namespace Aufgabe3 {
         crc2.clearRect(0, 0, 800, 600);
         crc2.putImageData(image, 0, 0);
 
-        for (let i: number = 0; i < WolkeX.length; i++) {
-            WolkeX[i] += Math.random() * 0.5;
-            WolkeY[i] += Math.random() * 0 - 0;
-            drawCloud(WolkeX[0], WolkeY[0], 22, 0, 2, "#FFFFFF");
-            drawCloud(WolkeX[1], WolkeY[1], 22, 0, 2, "#FFFFFF");
 
-            //Wenn Wolke aus dem Bild: Links wieder ins Bild kommen
-            if (WolkeX[0] > 800) {
-                WolkeX[0] = -50;
+        //Animation Wolken
+        for (let i: number = 0; i < wolkeX.length; i++) {
+            wolkeX[i] += Math.random() * 5;
+            drawCloud(wolkeX[i], wolkeY[i], 22, 0, 2, "#FFFFFF");
+      
+        //Wenn Wolke aus dem Bild: Links wieder ins Bild kommen
+            if (wolkeX[i] > 800) {
+            wolkeX[i] = -50;
             }
-            
-            if (WolkeX[1] > 800) {
-                WolkeX[1] = -50;
-            }
-         }
-        
+        }
+
         //Animation Lift//
-        for (let i: number = 0; i < LiftX.length; i++) {
-            LiftX[i] += Math.random() * 5
-            LiftY[i] -= 0.22;
-            drawLift(LiftX[i], LiftY[i]);
+        for (let i: number = 0; i < liftX.length; i++) {
+            liftX[i] += Math.random() * 5
+            liftY[i] -= 0.22;
+            drawLift(liftX[i], liftY[i]);
 
-            if (LiftX[i] > 800) {
-                LiftX[i] = 0;
-                LiftY[i] = 150;
+            if (liftX[i] > 800) {
+                liftX[i] = 0;
+                liftY[i] = 150;
             }
         }
 
         //Animation Skifahrer//
-        for (let i: number = 0; i < SkifahrerX.length; i++) {
-            SkifahrerX[i] += Math.random() * 10 - 10;
-            SkifahrerY[i] += Math.random() * 0 - 0;
-            drawSkiingSnowman(SkifahrerX[i], SkifahrerY[i], 18, 0, 2, "#F2F2F2");
+        for (let i: number = 0; i < skifahrerX.length; i++) {
+            skifahrerX[i] += Math.random() * 10 - 10;
+            skifahrerY[i] += Math.random() * 0 - 0;
+            drawSkiingSnowman(skifahrerX[i], skifahrerY[i], 18, 0, 2, "#F2F2F2");
 
-            if (SkifahrerX[i] < 0) {
-                SkifahrerX[i] = 950;
+            if (skifahrerX[i] < 0) {
+                skifahrerX[i] = 950;
             }
         }
-        
+
         //Animation Schnee//
-        for (let i: number = 0; i < SchneeflockenX.length; i++) {
-            SchneeflockenY[i] += Math.random() * 2;
-            drawSnowflake1(SchneeflockenX[i], SchneeflockenY[i], 2, 0, 2, "#FFFFFF");
-            
-            if (SchneeflockenY[i] > 450) {
-            SchneeflockenY[i] = 0;
-            }           
-        }      
-        
+        for (let i: number = 0; i < schneeflockenX.length; i++) {
+            schneeflockenY[i] += Math.random() * 2;
+            drawSnowflake1(schneeflockenX[i], schneeflockenY[i], 2, 0, 2, "#FFFFFF");
+
+            if (schneeflockenY[i] > 450) {
+                schneeflockenY[i] = 0;
+            }
+        }
+
         window.setTimeout(animate, 20);
     }
 
