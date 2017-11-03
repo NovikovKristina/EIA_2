@@ -529,7 +529,7 @@ namespace Aufgabe3 {
 
         //Animation Wolken
         for (let i: number = 0; i < wolkeX.length; i++) {
-            wolkeX[i] += Math.random() * 5;
+            wolkeX[i] += Math.random() * 0.7;
             drawCloud(wolkeX[i], wolkeY[i], 22, 0, 2, "#FFFFFF");
       
         //Wenn Wolke aus dem Bild: Links wieder ins Bild kommen
