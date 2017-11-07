@@ -18,7 +18,7 @@
 	#logo {
 		margin-top: 10%;
 		text-align: left;
-		margin-left: 7%;		
+		margin-left: 7%;
 		padding-top: 14%;
 		padding-bottom: 2%;
 	}
@@ -70,7 +70,325 @@
 	}
 	#image {
 		margin-top: 10%;
-		
+	}
+}
+
+/*Smartphone 2*/
+@media only screen and (min-device-width : 360px) {
+	#topbar {
+		font-size: 12px;
+		font-family: sans-serif;
+		background-color: #404040;
+		margin: -1%;
+		padding: 0.02% 0% 1.2% 65%;
+	}
+	#logo {
+		margin-top: 10%;
+		text-align: left;
+		margin-left: 10%;
+		padding-top: 12%;
+		padding-bottom: 2%;
+	}
+	#KristinaNovikov {
+		margin-top: -13%;
+		text-align: left;
+		margin-left: 16%;
+		font-size: 25px;
+		font-family: 'Homemade Apple', cursive;
+		font-size: 25px;
+	}
+	nav ul {
+		font-family: 'Amatic SC', cursive;
+		font-size: 26px;
+		margin-top: -5%;
+		margin-left: -23.5%;
+		magin-bottom: -2%;
+		padding: 0% 0% 0% -30%;
+	}
+}
+
+/*Smartphone 3*/
+@media only screen and (min-device-width : 430px) {
+	#topbar {
+		font-size: 12px;
+		font-family: sans-serif;
+		background-color: #404040;
+		margin: -1%;
+		padding: 0.02% 0% 1.2% 70%;
+	}
+	#logo {
+		margin-top: 10%;
+		text-align: left;
+		margin-left: 15%;
+		padding-top: 12%;
+		padding-bottom: 2%;
+	}
+	#KristinaNovikov {
+		margin-top: -11%;
+		text-align: left;
+		margin-left: 14%;
+		font-size: 25px;
+		font-family: 'Homemade Apple', cursive;
+		font-size: 25px;
+	}
+	nav ul {
+		font-family: 'Amatic SC', cursive;
+		font-size: 26px;
+		margin-top: -5%;
+		margin-left: -22%;
+		magin-bottom: -2%;
+		padding: 0% 0% 0% -30%;
+	}
+}
+
+/*Smartphone 4*/
+@media only screen and (min-device-width : 500px) {
+	#topbar {
+		font-size: 12px;
+		font-family: sans-serif;
+		background-color: #404040;
+		margin: -1%;
+		padding: 0.02% 0% 1.2% 75%;
+	}
+	#logo {
+		margin-top: 10%;
+		text-align: left;
+		margin-left: 22%;
+		padding-top: 12%;
+		padding-bottom: 2%;
+	}
+	#KristinaNovikov {
+		margin-top: -10%;
+		text-align: left;
+		margin-left: 12%;
+		font-size: 25px;
+		font-family: 'Homemade Apple', cursive;
+		font-size: 25px;
+	}
+	nav ul {
+		font-family: 'Amatic SC', cursive;
+		font-size: 26px;
+		margin-top: -5%;
+		margin-left: -14%;
+		magin-bottom: -2%;
+		padding: 0% 0% 0% -30%;
+	}
+}
+
+/*Smartphone 5*/
+@media only screen and (min-device-width : 560px) {
+	#topbar {
+		font-size: 12px;
+		font-family: sans-serif;
+		background-color: #404040;
+		margin: -1%;
+		padding: 0.02% 0% 1.2% 80%;
+	}
+	#logo {
+		margin-top: 10%;
+		text-align: left;
+		margin-left: 26%;
+		padding-top: 12%;
+		padding-bottom: 2%;
+	}
+	#KristinaNovikov {
+		margin-top: -10%;
+		text-align: left;
+		margin-left: 12%;
+		font-size: 25px;
+		font-family: 'Homemade Apple', cursive;
+		font-size: 25px;
+	}
+	nav ul {
+		font-family: 'Amatic SC', cursive;
+		font-size: 26px;
+		margin-top: -5%;
+		margin-left: -9%;
+		magin-bottom: -2%;
+		padding: 0% 0% 0% -30%;
+	}
+}
+
+/*Smartphone 6*/
+@media only screen and (min-device-width : 660px) {
+	#topbar {
+		font-size: 12px;
+		font-family: sans-serif;
+		background-color: #404040;
+		margin: -1%;
+		padding: 0.02% 0% 1.2% 82%;
+	}
+	#logo {
+		margin-top: 10%;
+		text-align: left;
+		margin-left: 28%;
+		padding-top: 12%;
+		padding-bottom: 2%;
+	}
+	#KristinaNovikov {
+		margin-top: -9%;
+		text-align: left;
+		margin-left: 12%;
+		font-size: 25px;
+		font-family: 'Homemade Apple', cursive;
+		font-size: 25px;
+	}
+}
+
+/*Tablet portrait*/
+@media only screen and (min-device-width : 768px) {
+	#topbar {
+		font-size: 12px;
+		font-family: sans-serif;
+		background-color: #404040;
+		margin: -1%;
+		padding: 0.02% 0% 1.2% 85%;
+	}
+	#logo {
+		margin-top: 10%;
+		text-align: left;
+		margin-left: 4%;
+		padding-top: 5%;
+		padding-bottom: 2%;
+	}
+	#KristinaNovikov {
+		margin-top: -6%;
+		text-align: left;
+		margin-left: 7%;
+		font-size: 25px;
+		font-family: 'Homemade Apple', cursive;
+		font-size: 25px;
+	}
+	nav ul {
+		font-family: 'Amatic SC', cursive;
+		font-size: 26px;
+		margin-top: -5%;
+		margin-left: 50%;
+		magin-bottom: -2%;
+		padding: 0% 0% 0% -30%;
+	}
+}
+
+/*Tablet portrait 2*/
+@media only screen and (min-device-width : 852px) {
+	#topbar {
+		font-size: 12px;
+		font-family: sans-serif;
+		background-color: #404040;
+		margin: -1%;
+		padding: 0.02% 0% 1.2% 85%;
+	}
+	#logo {
+		margin-top: 10%;
+		text-align: left;
+		margin-left: 4%;
+		padding-top: 5%;
+		padding-bottom: 2%;
+	}
+	#KristinaNovikov {
+		margin-top: -5%;
+		text-align: left;
+		margin-left: 7%;
+		font-size: 25px;
+		font-family: 'Homemade Apple', cursive;
+		font-size: 25px;
+	}
+	nav ul {
+		font-family: 'Amatic SC', cursive;
+		font-size: 26px;
+		margin-top: -5%;
+		margin-left: 55%;
+		magin-bottom: -2%;
+		padding: 0% 0% 0% -30%;
+	}
+}
+
+/*Tablet landscape*/
+@media only screen and (min-device-width : 1024px) {
+	#topbar {
+		font-size: 12px;
+		font-family: sans-serif;
+		background-color: #404040;
+		margin: -1%;
+		padding: 0.02% 0% 1.2% 88%;
+	}
+	#logo {
+		margin-top: 10%;
+		text-align: left;
+		margin-left: 4%;
+		padding-top: 4%;
+		padding-bottom: 2%;
+	}
+	#KristinaNovikov {
+		margin-top: -4%;
+		text-align: left;
+		margin-left: 5%;
+		font-size: 25px;
+		font-family: 'Homemade Apple', cursive;
+		font-size: 25px;
+	}
+	nav ul {
+		font-family: 'Amatic SC', cursive;
+		font-size: 26px;
+		margin-top: -5%;
+		margin-left: 60%;
+		magin-bottom: -2%;
+		padding: 0% 0% 0% -30%;
+	}
+}
+
+/*Tablet landscape 2*/
+@media only screen and (min-width : 1224px) {
+	#topbar {
+		font-size: 12px;
+		font-family: sans-serif;
+		background-color: #404040;
+		margin: -1%;
+		padding: 0.02% 0% 1.2% 90%;
+	}
+	#contact li {
+		list-style: none;
+		display: inline-block;
+	}
+	#header {
+		background-color: #f2f2f2;
+		margin: -12% -1% -1% -1%;
+	}
+	#logo {
+		margin-top: 10%;
+		margin-left: 7%;
+		padding-top: 2%;
+		padding-bottom: 2%;
+	}
+	#KristinaNovikov {
+		margin-top: -4%;
+		margin-left: 5%;
+		font-size: 25px;
+		font-family: 'Homemade Apple', cursive;
+	}
+	nav ul {
+		font-family: 'Amatic SC', cursive;
+		font-size: 26px;
+		margin-top: -9%;
+		margin-left: 60%;
+		magin-bottom: -2%;
+		padding: 0% 0% 0% -30%;
+	}
+	nav li {
+		list-style: none;
+		font-weight: bold;
+		margin: 5% -25% 5% 32%;
+		padding: 0% -1% 0% -7%;
+		display: inline-block;
+	}
+	nav a {
+		text-decoration: none;
+		color: black;
+	}
+	#bottombar {
+		background-color: #cccccc;
+		margin: -1% 0% 0% 0%;
+		padding: 0.4%;
 	}
 }
 
