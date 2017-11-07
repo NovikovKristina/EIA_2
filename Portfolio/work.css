@@ -524,7 +524,7 @@
 }
 
 /*Desktop*/
-@media only screen and (min-width : 1224px) {
+@media only screen and (min-width : 1280px) {
 	#topbar {
 		font-size: 12px;
 		font-family: sans-serif;
