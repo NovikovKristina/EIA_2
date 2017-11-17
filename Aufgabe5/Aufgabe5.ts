@@ -15,9 +15,6 @@ namespace Aufgabe5 {
 
     let schneeflocke: Schneeflocken;
     let schneeflocken: Schneeflocken[] = [];
-    
-    let tanne: Tannen;
-    let tannen: Tannen[] = [];
 
     let liftX: number[] = [0];
     let liftY: number[] = [150];

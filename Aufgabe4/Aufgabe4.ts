@@ -22,8 +22,6 @@ namespace Aufgabe4 {
 
     let wolkeX: number[] = [];
     let wolkeY: number[] = [];
-    //    let skifahrerX: number[] = [];
-    //    let skifahrerY: number[] = [];
     let schneeflockenX: number[] = [];
     let schneeflockenY: number[] = [];
     let liftX: number[] = [0];

@@ -10,8 +10,6 @@ var Aufgabe4;
     let skifahrer = [];
     let wolkeX = [];
     let wolkeY = [];
-    //    let skifahrerX: number[] = [];
-    //    let skifahrerY: number[] = [];
     let schneeflockenX = [];
     let schneeflockenY = [];
     let liftX = [0];

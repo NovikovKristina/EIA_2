@@ -11,8 +11,6 @@ var Aufgabe5;
     let wolken = [];
     let schneeflocke;
     let schneeflocken = [];
-    let tanne;
-    let tannen = [];
     let liftX = [0];
     let liftY = [150];
     let image;
