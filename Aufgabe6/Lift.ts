@@ -14,11 +14,11 @@ namespace Aufgabe6 {
             super(_x, _y);
         }
 
-        update(): void {
-            this.move();
-            this.comeBack();
-            this.draw();
-        }
+//        update(): void {
+//            this.move();
+//            this.comeBack();
+//            this.draw();
+//        }
 
         move(): void {
             this.x += Math.random() * 5;
