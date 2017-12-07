@@ -11,13 +11,15 @@ var Aufgabe6;
             this.dx = Math.random() * -5 - 5;
             this.dy = Math.random() * -0.01 + 0.01;
         }
-        update() {
-            this.move();
-            this.comeBack();
-            this.draw();
-        }
+        //        update(): void {
+        //            this.move();
+        //            this.comeBack();
+        //            this.draw();
+        //        }
         move() {
-            this.x += Math.random() * -5 - 5;
+            this.x += this.dx;
+            this.y += this.dy;
+            this.x += Math.random() * -1.5 - 1.5;
             this.y += Math.random() * -0.01 + 0.01;
         }
         comeBack() {

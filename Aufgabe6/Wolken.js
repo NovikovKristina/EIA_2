@@ -9,11 +9,11 @@ var Aufgabe6;
         constructor(_x, _y) {
             super(_x, _y);
         }
-        update() {
-            this.move();
-            this.comeBack();
-            this.draw();
-        }
+        //        update(): void {
+        //            this.move();
+        //            this.comeBack();
+        //            this.draw();
+        //        }
         move() {
             this.x += Math.random() * 0.3 + 0.3;
             this.y += Math.random() * 0;

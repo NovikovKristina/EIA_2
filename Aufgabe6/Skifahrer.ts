@@ -15,17 +15,21 @@ namespace Aufgabe6 {
         constructor(_x: number, _y: number) {
             super(_x, _y);
             this.dx = Math.random() * - 5 - 5;
-            this.dy = Math.random() * - 0.01 + 0.01; 
+            this.dy = Math.random() * - 0.01 + 0.01;
         }
 
-        update(): void {
-            this.move();
-            this.comeBack();
-            this.draw();
-        }
+        //        update(): void {
+        //            this.move();
+        //            this.comeBack();
+        //            this.draw();
+        //        }
 
         move(): void {
-            this.x += Math.random() * - 5 - 5;
+
+            this.x += this.dx;
+            this.y += this.dy;
+
+            this.x += Math.random() * - 1.5 - 1.5;
             this.y += Math.random() * - 0.01 + 0.01;
         }
 
