@@ -7,19 +7,17 @@
 namespace Erpresserbrief {
 
     window.addEventListener("load", init);
-    document.addEventListener("keydown", removeLetter);
+    window.addEventListener("keydown", handleKeydown);
 
     let alphabet: string[] = ("ABCDEFGHIJKLMNOPQRSTUVWXYZ").split("");
     console.log(alphabet);      
     let rememberLetter: string = "";    
     let clickedLetter: string;    
-    let place: HTMLDivElement = document.createElement("div");
     
     
     function init(_event: Event): void {       
         for (let i: number = 0; i < alphabet.length; i++) {
             let letter: HTMLDivElement = document.createElement("div");
-            document.body.appendChild(letter);
 
             letter.style.width = "2%";
             letter.style.height = "5.5%";
@@ -30,66 +28,79 @@ namespace Erpresserbrief {
             letter.style.fontFamily = "sans-serif";
             letter.style.fontWeight = "bold";
             letter.style.display = "inline-block";
-            letter.innerText = alphabet[i];            
+            letter.innerText = alphabet[i];
+            letter.id = alphabet[i].toLowerCase();            
             letter.id = alphabet[i];
             letter.className = "letter";
 
-            letter.addEventListener("click", pickLetter);
+            letter.addEventListener("mousedown", pickLetter);
+            document.body.appendChild(letter);
         }
                    
         let paper: HTMLDivElement = document.createElement("div");
-        document.body.appendChild(paper);
-
         paper.style.width = "68.5%";
         paper.style.height = "80%";
         paper.style.backgroundImage = "url('paper.jpg')";
         paper.style.marginLeft = "5%";
         paper.style.paddingTop = "8px";
 
-        paper.addEventListener("click", placeLetter);      
+        paper.addEventListener("mousedown", placeLetter);      
+        document.body.appendChild(paper);
     }
 
 
     function pickLetter(_event: MouseEvent): void {
-        console.log(_event.target);
-        let pick: HTMLElement = <HTMLElement>_event.target;
+            let pick: HTMLElement = <HTMLElement>_event.target;
 
-        pick.style.color = "white";
-        rememberLetter = pick.innerText;       
-        clickedLetter = pick.id;
+            pick.style.color = "white";
+            rememberLetter = pick.innerText;              
+            clickedLetter = pick.id;
+            rememberLetter = pick.id.toUpperCase();
         
-        let divList: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>>document.getElementsByClassName("letter");        
-        for (let i: number = 0; i < divList.length; i++ ) {
-            if (clickedLetter != divList[i].id) {
+            let divList: NodeListOf<HTMLDivElement> = <NodeListOf<HTMLDivElement>>document.getElementsByClassName("letter");        
+            for (let i: number = 0; i < divList.length; i++ ) {
+                if (clickedLetter != divList[i].id) {
                 divList[i].style.color = "black";
+                }
             }
-        }
     }
     
 
     function placeLetter(_event: MouseEvent): void {
-        //        let place: HTMLDivElement = document.createElement("div");
-        document.body.appendChild(place);
+        let place: HTMLDivElement = document.createElement("div");
 
+        if (rememberLetter == "")
+        return;
+        
         place.innerText = rememberLetter;
         place.style.fontFamily = "sans-serif";
         place.style.fontWeight = "bold";
         place.style.fontSize = "18px";
         place.style.position = "fixed";
-        place.style.left = -10 + _event.pageX + "px";
-        place.style.top = -10 + _event.pageY + "px";
+        place.style.left = -20 + _event.pageX + "px";
+        place.style.top = -20 + _event.pageY + "px";
+        
+        place.addEventListener("mousedown", handleMousedown);        
+        document.body.appendChild(place);        
     }
-
-    //Funktioniert noch nicht ganz
-    //Buchstabe wird gelöscht wenn man Alt drückt
-    //Aber zuvor platzierter Buchstabe verschwindet wenn ein neuer platziert wird
-    function removeLetter(_event: KeyboardEvent): void {
-        let altKey: boolean;
-
-        if (_event.altKey == true) {
-            document.body.removeChild(place);
+    
+    
+    function handleKeydown(_event: KeyboardEvent): void {
+        if (alphabet.indexOf(_event.key.toUpperCase()) != -1) {
+            let remove: HTMLDivElement = <HTMLDivElement>document.getElementById(_event.key);
+            rememberLetter = _event.key.toUpperCase();
         }
     }
+    
 
-    //_event.keyCode = 18
+    function handleMousedown(_event: MouseEvent): void {
+        if (_event.altKey == false)
+            return;
+
+        else {
+            let remove: HTMLDivElement = <HTMLDivElement>_event.target;
+            document.body.removeChild(remove);
+        }
+    }
+    
 }
