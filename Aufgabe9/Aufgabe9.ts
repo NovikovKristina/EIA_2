@@ -77,8 +77,8 @@ namespace Erpresserbrief {
         place.style.fontWeight = "bold";
         place.style.fontSize = "18px";
         place.style.position = "fixed";
-        place.style.left = -20 + _event.pageX + "px";
-        place.style.top = -20 + _event.pageY + "px";
+        place.style.left = 0 + _event.pageX + "px";
+        place.style.top = 0 + _event.pageY + "px";
         
         place.addEventListener("mousedown", handleMousedown);        
         document.body.appendChild(place);        
