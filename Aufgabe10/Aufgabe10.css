@@ -1,0 +1,311 @@
+/*
+Aufgabe: Aufgabe 10
+Name: Kristina Novikov
+Matrikel: 254136
+Datum: 03.01.2018
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+*/
+@import
+	url('https://fonts.googleapis.com/css?family=Amatic+SC|Quattrocento+Sans|Vibur')
+	;
+
+/*Smartphone*/
+@media screen and (min-width: 320px) {
+	html {
+		background-color: #e5ffe0;
+		font-family: 'Quattrocento Sans', sans-serif;
+	}
+	body {
+		background-color: white;
+		margin: 2%;
+		padding-bottom: 4%;
+	}
+	* {
+		display: block;
+		vertical-align: top
+	}
+	input[type="radio"], input[type="checkbox"], label {
+		display: inline;
+	}
+	label::after {
+		content: "";
+		display: block;
+	}
+	head {
+		display: none;
+	}
+	input:valid {
+		background: white;
+	}
+	input[type='radio'] {
+		width: auto;
+		float: left;
+		margin-right: .75em;
+		background: transparent;
+		border: none;
+	}
+	h1 {
+		text-align: center;
+		padding-top: 35%;
+		padding-bottom: 5%;
+		font-size: 1.3em;
+		margin-top: 2%;
+	}
+	h2 {
+		font-size: 1.2em;
+	}
+	#tree {
+		position: absolute;
+		margin-left: 35%;
+		margin-right: 20%;
+		margin-top: 1.5%;
+	}
+	#bestelluebersicht {
+		margin: auto;
+		width: 50%;
+		margin-top: 20% !important;
+	}
+	#baumart {
+		margin: auto;
+		width: 50%;
+		margin-top: 8% !important;
+	}
+	#halterung {
+		margin: auto;
+		width: 50%;
+		margin-top: 8% !important;
+	}
+	#schmuckartikel {
+		margin: auto;
+		width: 50%;
+		margin-top: 8% !important;
+	}
+	#kerzenart {
+		margin: auto;
+		width: 50%;
+		margin-top: 8% !important;
+	}
+	#lieferoptionen {
+		margin: auto;
+		width: 50%;
+		margin-top: 8% !important;
+	}
+	#lieferadresse {
+		margin: auto;
+		width: 50%;
+		margin-top: 8% !important;
+	}
+	fieldset {
+		width: 35%;
+		margin-left: 8%;
+		border: 2px solid #6acc58;
+		margin-top: 3%;
+		z-index: 100;
+		background-color: #f2ffe6;
+	}
+	#bestellungAbschicken {
+		margin: auto;
+		width: 80%;
+		background-color: #6acc58;
+		border: 1px solid #6acc58;
+		padding: 3%;
+		font-family: 'Raleway', sans-serif;
+		font-size: 1em;
+	}
+	#bestellungAbschicken:hover {
+		background-color: #b2ffa4;
+	}
+	legend {
+		font-family: 'Amatic SC', cursive;
+		font-size: 2em;
+		font-weight: bold;
+	}
+	#baumart {
+		position: relative;
+		margin-top: 2%;
+	}
+	hr {
+		color: #78e363;
+	}
+}
+
+@media screen and (min-width: 380px) {
+	h1 {
+		text-align: center;
+		padding-top: 30%;
+		padding-bottom: 5%;
+		font-size: 1.5em;
+		margin-top: 2%;
+	}
+}
+
+@media screen and (min-width: 500px) {
+	h1 {
+		margin: auto;
+		width: 80%;
+		margin-top: 2%;
+		padding-top: 11%;
+		padding-bottom: 5%;
+		font-size: 1.6em;
+		margin-top: 2%;
+	}
+	#tree {
+		position: absolute;
+		margin-left: 5%;
+		margin-top: 1.5%;
+	}
+	#bestelluebersicht {
+		margin: auto;
+		width: 50%;
+		margin-top: 10% !important;
+	}
+}
+
+@media screen and (min-width: 600px) {
+	h1 {
+		padding-top: 10%;
+		font-size: 1.8em;
+	}
+	#tree {
+		margin-left: 9%;
+	}
+}
+
+@media screen and (min-width: 700px) {
+	h1 {
+		padding-top: 9%;
+		font-size: 1.9em;
+	}
+	#tree {
+		margin-left: 12%;
+	}
+}
+
+/*Tablet*/
+@media screen and (min-width:768px) {
+	h1 {
+		margin: auto;
+		width: 80%;
+		padding-top: 7%;
+		padding-bottom: 5%;
+		font-size: 2.3em;
+	}
+	#tree {
+		position: absolute;
+		margin-left: 10%;
+		margin-top: 1.5%;
+	}
+	#bestelluebersicht {
+		margin: auto;
+		width: 50%;
+		margin-top: 10% !important;
+	}
+	#bestellungAbschicken {
+		margin: auto;
+		width: 50%;
+		background-color: #6acc58;
+		border: 1px solid #6acc58;
+		padding: 3%;
+		font-family: 'Raleway', sans-serif;
+		font-size: 1em;
+	}
+	#baumart {
+		margin: auto;
+		width: 50%;
+		margin-top: 5% !important;
+	}
+}
+
+@media screen and (min-width: 880px) {
+	#tree {
+		position: absolute;
+		margin-left: 14%;
+		margin-top: 1.5%;
+	}
+}
+
+/*Desktop*/
+@media screen and (min-width: 992px) {
+	#tree {
+		margin-left: 18%;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	#bestelluebersicht {
+		position: absolute;
+		float: right;
+		margin-left: 49%;
+		margin-top: 5% !important;
+		width: 40%;
+	}
+	#bestellungAbschicken {
+		margin: auto;
+		width: 50%;
+		background-color: #6acc58;
+		border: 1px solid #6acc58;
+		padding: 3%;
+		font-family: 'Raleway', sans-serif;
+		font-size: 1em;
+	}
+	#baumart {
+		position: relative;
+		margin-left: 4.5%;
+		margin-top: 5% !important;
+		width: 40%;
+	}
+	#halterung {
+		position: relative;
+		margin-left: 4.5%;
+		margin-top: 3% !important;
+		width: 40%;
+	}
+	#schmuckartikel {
+		position: relative;
+		margin-left: 4.5%;
+		margin-top: 3% !important;
+		width: 40%;
+	}
+	#kerzenart {
+		position: relative;
+		margin-left: 4.5%;
+		margin-top: 3% !important;
+		width: 40%;
+	}
+	#lieferoptionen {
+		position: relative;
+		margin-left: 4.5%;
+		margin-top: 3% !important;
+		width: 40%;
+	}
+	#lieferadresse {
+		position: relative;
+		margin-left: 4.5%;
+		margin-top: 3% !important;
+		width: 40%;
+	}
+}
+
+@media screen and (min-width: 1080px) {
+	h1 {
+		padding-top: 6%;
+	}
+	#tree {
+		margin-left: 20%;
+	}
+}
+
+@media screen and (min-width: 1224px) {
+	#tree {
+		margin-left: 22%;
+	}
+}
+
+@media screen and (min-width: 1300px) {
+	h1 {
+		padding-top: 5.5%;
+	}
+	#tree {
+		margin-left: 24%;
+	}
+}

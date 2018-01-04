@@ -1,0 +1,85 @@
+<!-- Aufgabe: 10
+Name: Kristina Novikov
+Matrikel: 254136
+Datum: 03.01.2018
+Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Weihnachtsbaumkonfigurator</title>
+<script type="text/javascript" src="Aufgabe10.js"></script>
+<link rel="stylesheet" href="Aufgabe10.css">
+</head>
+<body>
+
+	<header>
+		<img id="tree" src="weihnachtsbaum.png" height="100px" width="100px">
+		<h1>Weihnachtsbaumkonfigurator</h1>
+	</header>
+	
+			<fieldset id="bestelluebersicht">
+				<legend> Bestellübersicht </legend>
+				<h4>Ihre Auswahl:</h4>
+				<p>Weihnachtsbaum - Standardpreis 50 Euro</p>
+				<p id="auswahl"></p>
+				<h4>Summe:</h4>
+				<p id="summe"></p>
+				
+			<button id="bestellungAbschicken" type="button">Bestellung prüfen und abschicken</button>
+       		</fieldset>
+
+			<fieldset id="baumart">
+				<legend> Baumart </legend>
+				<input type="radio" name="Radiogroup" value="radio1" id="radio1" checked/>
+				<label for="radio1">Kunstbaum</label>
+				<input type="radio" name="Radiogroup" value="radio2" id="radio2"/>
+				<label for="radio2">Nordmanntanne</label>
+				<input type="radio" name="Radiogroup" value="radio3" id="radio3"/>
+				<label for="radio3">Fichte</label>
+				<input type="radio" name="Radiogroup" value="radio4" id="radio4"/>
+				<label for="radio4">Kiefer</label>				
+			</fieldset>
+			
+			<fieldset id="halterung">
+				<legend> Halterung </legend>			
+			</fieldset>
+	
+			<fieldset id="schmuckartikel">
+				<legend> Schmuckartikel </legend>
+			</fieldset>
+
+			<fieldset id="kerzenart">
+			<legend> Kerzentyp </legend>
+			</fieldset>
+	
+			<fieldset id="lieferoptionen">
+				<legend> Lieferoptionen </legend>
+				<select name="Lieferoptionen" id="Lieferoptionen">
+				<option value="option1" selected>Standard (5 Werktage)</option>
+				<option value="option2">Premium (3 Werktage)</option>
+				<option value="option3">Express (Lieferung am nächsten Werktag)</option>
+				</select>
+			</fieldset>
+	
+			<fieldset id="lieferadresse">
+				<legend> Lieferadresse </legend>
+				Name
+				<input type="text" name="Name" placeholder="Claus" required id="name"/>
+				<hr />
+				Vorname
+				<input type="text" name="Vorname" placeholder="Santa" required id="vorname"/>
+				<hr />
+				Straße &amp; Hausnummer
+				<input type="text" name="Straße" placeholder="Tähtikuja 1" required id="strasse"/>
+				<hr />
+				Postleitzahl
+				<input type="text" name="PLZ" placeholder="96930" required id="PLZ"/>
+				<hr />
+				Ort
+				<input type="text" name="Ort" placeholder="Arctic Circle" required id="ort"/>
+			</fieldset>
+
+</body>
+</html>
