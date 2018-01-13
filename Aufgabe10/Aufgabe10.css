@@ -6,8 +6,7 @@ Datum: 03.01.2018
 Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 */
 @import
-	url('https://fonts.googleapis.com/css?family=Amatic+SC|Quattrocento+Sans|Vibur')
-	;
+	url('https://fonts.googleapis.com/css?family=Amatic+SC|Quattrocento+Sans|Vibur');
 
 /*Smartphone*/
 @media screen and (min-width: 320px) {
@@ -60,37 +59,37 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 		margin-right: 20%;
 		margin-top: 1.5%;
 	}
-	#bestelluebersicht {
+	#Bestellung {
 		margin: auto;
 		width: 50%;
 		margin-top: 20% !important;
 	}
-	#baumart {
+	#Baumart {
 		margin: auto;
 		width: 50%;
 		margin-top: 8% !important;
 	}
-	#halterung {
+	#Halterung {
 		margin: auto;
 		width: 50%;
 		margin-top: 8% !important;
 	}
-	#schmuckartikel {
+	#Schmuckartikel {
 		margin: auto;
 		width: 50%;
 		margin-top: 8% !important;
 	}
-	#kerzenart {
+	#Kerzentyp {
 		margin: auto;
 		width: 50%;
 		margin-top: 8% !important;
 	}
-	#lieferoptionen {
+	#Lieferoptionen {
 		margin: auto;
 		width: 50%;
 		margin-top: 8% !important;
 	}
-	#lieferadresse {
+	#Kundendaten {
 		margin: auto;
 		width: 50%;
 		margin-top: 8% !important;
@@ -103,7 +102,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 		z-index: 100;
 		background-color: #f2ffe6;
 	}
-	#bestellungAbschicken {
+	#Button {
 		margin: auto;
 		width: 80%;
 		background-color: #6acc58;
@@ -112,7 +111,7 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 		font-family: 'Raleway', sans-serif;
 		font-size: 1em;
 	}
-	#bestellungAbschicken:hover {
+	#Button:hover {
 		background-color: #b2ffa4;
 	}
 	legend {
@@ -126,6 +125,10 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 	}
 	hr {
 		color: #78e363;
+	}
+	.text {
+	color: green;
+	font-size: 0.9em;
 	}
 }
 
@@ -195,12 +198,12 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 		margin-left: 10%;
 		margin-top: 1.5%;
 	}
-	#bestelluebersicht {
+	#Button{
 		margin: auto;
 		width: 50%;
 		margin-top: 10% !important;
 	}
-	#bestellungAbschicken {
+	#Button {
 		margin: auto;
 		width: 50%;
 		background-color: #6acc58;
@@ -232,14 +235,14 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 }
 
 @media screen and (min-width: 1024px) {
-	#bestelluebersicht {
+	#Bestellung {
 		position: absolute;
 		float: right;
 		margin-left: 49%;
 		margin-top: 5% !important;
 		width: 40%;
 	}
-	#bestellungAbschicken {
+	#Button {
 		margin: auto;
 		width: 50%;
 		background-color: #6acc58;
@@ -248,37 +251,37 @@ Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde n
 		font-family: 'Raleway', sans-serif;
 		font-size: 1em;
 	}
-	#baumart {
+	#Baumart {
 		position: relative;
 		margin-left: 4.5%;
 		margin-top: 5% !important;
 		width: 40%;
 	}
-	#halterung {
+	#Halterung {
 		position: relative;
 		margin-left: 4.5%;
 		margin-top: 3% !important;
 		width: 40%;
 	}
-	#schmuckartikel {
+	#Schmuckartikel {
 		position: relative;
 		margin-left: 4.5%;
 		margin-top: 3% !important;
 		width: 40%;
 	}
-	#kerzenart {
+	#Kerzentyp {
 		position: relative;
 		margin-left: 4.5%;
 		margin-top: 3% !important;
 		width: 40%;
 	}
-	#lieferoptionen {
+	#Lieferoptionen {
 		position: relative;
 		margin-left: 4.5%;
 		margin-top: 3% !important;
 		width: 40%;
 	}
-	#lieferadresse {
+	#Kundendaten {
 		position: relative;
 		margin-left: 4.5%;
 		margin-top: 3% !important;

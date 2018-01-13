@@ -6,163 +6,165 @@
 var Weihnachtsbaumkonfigurator;
 (function (Weihnachtsbaumkonfigurator) {
     window.addEventListener("load", init);
-    //Array aller Schmuckartikel
+    //Auswahl gespeichert in Arrays
+    let baumart = ["Kunstbaum", "Nordmanntanne", "Fichte", "Kiefer"];
+    let halterung = ["Typ A", "Typ B", "Typ C"];
     let schmuckartikel = ["Lichterketten", "Weihnachtskugeln", "Zuckerstangen", "Schleifen", "Lametta"];
-    let inputSchmuckartikel = [];
-    //Array aller Kerzenarten
-    let kerzenart = ["LED-Kerzen", "Echte Kerzen"];
-    let inputKerzenart = [];
-    //Array aller Halterungsarten
-    let halterungen = ["Typ A", "Typ B", "Typ C"];
-    let inputHalterungen = [];
-    //HTMLElemente kreieren
-    let halterung;
-    let schmuck;
-    let kerzen;
-    let bestelluebersicht;
-    let bestellbutton;
+    let kerzentyp = ["LED-Kerzen", "Echte Kerzen"];
+    //Arrays f�r die Inputs
+    let baumartInput = [];
+    let halterungInput = [];
+    let schmuckInput = [];
+    let kerzentypInput = [];
+    //HTMLElemente f�r die Inputs
+    let Baumart;
+    let Halterung;
+    let Schmuckartikel;
+    let Kerzentyp;
+    let Bestellung;
+    let Button;
     function init() {
-        schmuck = document.getElementById("schmuckartikel"); //Auf Schmuckartikel im HTML zugreifen
-        schmuck.addEventListener("change", change);
-        kerzen = document.getElementById("kerzenart");
-        kerzen.addEventListener("change", change);
-        halterung = document.getElementById("halterung");
-        halterung.addEventListener("change", change);
-        bestelluebersicht = document.getElementById("bestelluebersicht");
-        bestellbutton = document.getElementById("bestellungAbschicken");
-        bestellbutton.addEventListener("click", bestellungPruefen);
-        createHalterung();
-        createSchmuckartikel();
-        createKerzenart();
+        Baumart = document.getElementById("Baumart");
+        Halterung = document.getElementById("Halterung");
+        Schmuckartikel = document.getElementById("Schmuckartikel");
+        Kerzentyp = document.getElementById("Kerzentyp");
+        Bestellung = document.getElementById("Bestellung");
+        Button = document.getElementById("Button");
+        //Aufruf der Funktion zur Erstellung der verschiedenen Inputs
+        createInputs();
+        Bestellung.addEventListener("change", change);
+        Baumart.addEventListener("change", change);
+        Halterung.addEventListener("change", change);
+        Schmuckartikel.addEventListener("change", change);
+        Kerzentyp.addEventListener("change", change);
+        Button.addEventListener("click", DatenPruefen);
     }
-    function createSchmuckartikel() {
+    //Erstellen von Inputs f�r Baumart(Halterung (Radiobutton) und Schmuck/Kerzen (Stepper)   
+    function createInputs() {
+        for (let i = 0; i < baumart.length; i++) {
+            createRadio(baumart[i]);
+        }
+        for (let i = 0; i < halterung.length; i++) {
+            createRadio2(halterung[i]);
+        }
         for (let i = 0; i < schmuckartikel.length; i++) {
-            createInput(schmuckartikel[i]);
+            createStepper(schmuckartikel[i]);
+        }
+        for (let i = 0; i < kerzentyp.length; i++) {
+            createStepper2(kerzentyp[i]);
         }
     }
-    function createInput(_schmuck) {
-        let label = document.createElement("label");
+    //Funktionen um jeweilige Inputs (Stepper, Radiobuttons) zu erstellen    
+    function createStepper(_schmuck) {
         let input = document.createElement("input");
+        let label = document.createElement("label");
         label.innerText = _schmuck;
         label.appendChild(input);
         input.type = "number";
         input.min = "0";
-        input.max = "100";
         input.value = "0";
-        label.id = _schmuck;
-        schmuck.appendChild(label);
-        inputSchmuckartikel.push(input);
+        input.name = _schmuck;
+        Schmuckartikel.appendChild(label);
+        schmuckInput.push(input);
     }
-    function createKerzenart() {
-        for (let i = 0; i < kerzenart.length; i++) {
-            createInput2(kerzenart[i]);
-        }
-    }
-    function createInput2(_kerzen) {
-        let label = document.createElement("label");
+    function createStepper2(_kerzen) {
         let input = document.createElement("input");
+        let label = document.createElement("label");
         label.innerText = _kerzen;
         label.appendChild(input);
-        input.type = "number"; //Art des Inputs
+        input.type = "number";
         input.min = "0";
-        input.max = "100";
         input.value = "0";
-        label.id = _kerzen;
-        kerzen.appendChild(label);
-        inputKerzenart.push(input);
+        input.name = _kerzen;
+        Kerzentyp.appendChild(label);
+        kerzentypInput.push(input);
     }
-    function createHalterung() {
-        for (let i = 0; i < halterungen.length; i++) {
-            createRadio(halterungen[i]);
-        }
-    }
-    function createRadio(_radiobutton) {
-        let label = document.createElement("label");
+    function createRadio(_baum) {
         let input = document.createElement("input");
-        label.innerText = _radiobutton;
+        let label = document.createElement("label");
+        label.innerText = _baum;
         label.appendChild(input);
-        input.type = "radio"; //Art des Inputs
-        input.name = "Radiobutton";
-        label.id = _radiobutton;
-        halterung.appendChild(label);
-        inputHalterungen.push(input);
+        input.type = "radio";
+        input.required = true;
+        input.name = "baum";
+        input.value = _baum;
+        Baumart.appendChild(label);
+        baumartInput.push(input);
     }
-    //Ausgew�hlte Produkte inkl. Preis in der Bestell�bersicht anzeigen
-    function changeAuswahluebersicht(_summe) {
-        let BestellungUebersicht = document.getElementById("auswahl");
-        BestellungUebersicht.innerText = "";
-        for (let i = 0; i < inputHalterungen.length; i++) {
-            if (inputHalterungen[i].checked) {
-                BestellungUebersicht.innerText += halterungen[i] + "\n";
-            }
-        }
-        for (let i = 0; i < inputSchmuckartikel.length; i++) {
-            if (parseInt(inputSchmuckartikel[i].value) > 0) {
-                BestellungUebersicht.innerText += schmuckartikel[i] + " " + (parseInt(inputSchmuckartikel[i].value) * 1) + " Euro" + "\n";
-            }
-        }
-        for (let i = 0; i < inputKerzenart.length; i++) {
-            if (parseInt(inputKerzenart[i].value) > 0) {
-                BestellungUebersicht.innerText += kerzenart[i] + " " + (parseInt(inputKerzenart[i].value) * 1) + " Euro" + "\n";
-            }
-        }
-        //Summe im HTML
-        let summeHtml = document.getElementById("summe");
-        summeHtml.innerText = _summe.toString() + " Euro";
+    function createRadio2(_behaelter) {
+        let input = document.createElement("input");
+        let label = document.createElement("label");
+        label.innerText = _behaelter;
+        label.appendChild(input);
+        input.type = "radio";
+        input.required = true;
+        input.name = "behaelter";
+        input.value = _behaelter;
+        Halterung.appendChild(label);
+        halterungInput.push(input);
     }
+    //Ver�nderung der Auswahl   
     function change() {
         let summe = 0;
-        for (let i = 0; i < inputSchmuckartikel.length; i++) {
-            summe += parseInt(inputSchmuckartikel[i].value);
+        for (let i = 0; i < baumartInput.length; i++) {
+            if (baumartInput[i].checked) {
+                summe += 50;
+            }
         }
-        for (let i = 0; i < inputKerzenart.length; i++) {
-            summe += parseInt(inputKerzenart[i].value);
+        for (let i = 0; i < halterungInput.length; i++) {
+            if (halterungInput[i].checked) {
+                summe += 5;
+            }
         }
-        changeAuswahluebersicht(summe);
+        for (let i = 0; i < schmuckInput.length; i++) {
+            summe += parseInt(schmuckInput[i].value);
+        }
+        for (let i = 0; i < kerzentypInput.length; i++) {
+            summe += parseInt(kerzentypInput[i].value);
+        }
+        BestellungAnzeigen(summe);
     }
-    //Bestellung wird auf Vollst�ndigkeit gepr�ft
-    function bestellungPruefen() {
-        let pruefen = ["Folgende Eingaben fehlen: \n"];
-        //Name
-        let name = document.getElementById("name");
-        if (name.validity.valid == false) {
-            pruefen.push("\nName \n");
+    //Bestell�bersicht
+    function BestellungAnzeigen(_summe) {
+        document.getElementById("Baumartwahl").innerText = "";
+        document.getElementById("Halterungswahl").innerText = "";
+        document.getElementById("Schmuckartikelwahl").innerText = "";
+        document.getElementById("Kerzentypwahl").innerText = "";
+        for (let i = 0; i < baumartInput.length; i++) {
+            if (baumartInput[i].checked) {
+                document.getElementById("Baumartwahl").innerText += baumart[i] + " : 50 Euro" + "\n";
+            }
         }
-        //Vorname
-        let vorname = document.getElementById("vorname");
-        if (vorname.validity.valid == false) {
-            pruefen.push("Vorname \n");
+        for (let i = 0; i < halterungInput.length; i++) {
+            if (halterungInput[i].checked) {
+                document.getElementById("Halterungswahl").innerText += halterung[i] + " : 5 Euro" + "\n";
+            }
         }
-        //Stra�e
-        let strasse = document.getElementById("strasse");
-        if (strasse.validity.valid == false) {
-            pruefen.push("Strasse \n");
+        for (let i = 0; i < schmuckInput.length; i++) {
+            if (parseInt(schmuckInput[i].value) > 0) {
+                document.getElementById("Schmuckartikelwahl").innerText += schmuckartikel[i] + " " + ": " + (parseInt(schmuckInput[i].value) * 1) + "x 1 Euro" + "\n";
+            }
         }
-        //PLZ
-        let PLZ = document.getElementById("PLZ");
-        if (PLZ.validity.valid == false) {
-            pruefen.push("PLZ \n");
+        for (let i = 0; i < kerzentypInput.length; i++) {
+            if (parseInt(kerzentypInput[i].value) > 0) {
+                document.getElementById("Kerzentypwahl").innerText += kerzentyp[i] + " " + ": " + (parseInt(kerzentypInput[i].value) * 1) + "x 1 Euro" + "\n";
+            }
         }
-        //Ort
-        let ort = document.getElementById("ort");
-        if (ort.validity.valid == false) {
-            pruefen.push("Ort \n");
-        }
-        //Halterungsart
-        let halterungsArt = 0;
-        for (let i = 0; i < inputHalterungen.length; i++) {
-            if (inputHalterungen[i].checked)
-                halterungsArt += 1;
-        }
-        if (halterungsArt == 0)
-            pruefen.push("Halterungstyp");
-        if (pruefen.length > 1) {
-            for (let i = 0; i < pruefen.length; i++)
-                pruefen.push;
-            alert(pruefen.join(""));
+        //Anzeigen der Gesamtsumme
+        document.getElementById("Summe").innerText = _summe.toString() + " Euro";
+    }
+    //Bei Klick auf den Button werden die eingegeben Daten �berpr�ft und Feebdack gegeben   
+    function DatenPruefen() {
+        let nachname = document.getElementById("Nachname");
+        let vorname = document.getElementById("Vorname");
+        let strasse = document.getElementById("Strasse");
+        let plz = document.getElementById("PLZ");
+        let ort = document.getElementById("Ort");
+        if (nachname.checkValidity() == false || vorname.checkValidity() == false || strasse.checkValidity() == false || plz.checkValidity() == false || ort.checkValidity() == false) {
+            alert("Ihre Eingaben sind nicht vollstaendig oder nicht korrekt");
         }
         else {
-            alert("Vielen Dank, Ihre Bestellung wird verarbeitet!");
+            alert("Vielen Dank, Ihre Bestellung wird nun verarbeitet");
         }
     }
 })(Weihnachtsbaumkonfigurator || (Weihnachtsbaumkonfigurator = {}));

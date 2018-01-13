@@ -4,202 +4,214 @@
 //Datum: 03.01.2018
 //Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
 
+
 namespace Weihnachtsbaumkonfigurator {
     window.addEventListener("load", init);
 
-    //Array aller Schmuckartikel
+    //Auswahl gespeichert in Arrays
+    let baumart: string[] = ["Kunstbaum", "Nordmanntanne", "Fichte", "Kiefer"];
+    let halterung: string[] = ["Typ A", "Typ B", "Typ C"];
     let schmuckartikel: string[] = ["Lichterketten", "Weihnachtskugeln", "Zuckerstangen", "Schleifen", "Lametta"];
-    let inputSchmuckartikel: HTMLInputElement[] = [];
+    let kerzentyp: string[] = ["LED-Kerzen", "Echte Kerzen"];
 
-    //Array aller Kerzenarten
-    let kerzenart: string[] = ["LED-Kerzen", "Echte Kerzen"];
-    let inputKerzenart: HTMLInputElement[] = [];
+    //Arrays für die Inputs
+    let baumartInput: HTMLInputElement[] = [];
+    let halterungInput: HTMLInputElement[] = [];
+    let schmuckInput: HTMLInputElement[] = [];
+    let kerzentypInput: HTMLInputElement[] = [];
 
-    //Array aller Halterungsarten
-    let halterungen: string[] = ["Typ A", "Typ B", "Typ C"];
-    let inputHalterungen: HTMLInputElement[] = [];
+    //HTMLElemente für die Inputs
+    let Baumart: HTMLElement;
+    let Halterung: HTMLElement;
+    let Schmuckartikel: HTMLElement;
+    let Kerzentyp: HTMLElement;
 
-    //HTMLElemente kreieren
-    let halterung: HTMLElement;
-    let schmuck: HTMLElement;
-    let kerzen: HTMLElement;
-    let bestelluebersicht: HTMLElement;
-    let bestellbutton: HTMLElement;
-
+    let Bestellung: HTMLElement;
+    let Button: HTMLElement;
 
     function init(): void {
-        schmuck = document.getElementById("schmuckartikel"); //Auf Schmuckartikel im HTML zugreifen
-        schmuck.addEventListener("change", change);
 
-        kerzen = document.getElementById("kerzenart");
-        kerzen.addEventListener("change", change);
+        Baumart = document.getElementById("Baumart");
+        Halterung = document.getElementById("Halterung");
+        Schmuckartikel = document.getElementById("Schmuckartikel");
+        Kerzentyp = document.getElementById("Kerzentyp");
 
-        halterung = document.getElementById("halterung");
-        halterung.addEventListener("change", change);
+        Bestellung = document.getElementById("Bestellung");
+        Button = document.getElementById("Button");
 
-        bestelluebersicht = document.getElementById("bestelluebersicht");
-        bestellbutton = document.getElementById("bestellungAbschicken");
-        bestellbutton.addEventListener("click", bestellungPruefen);
+        //Aufruf der Funktion zur Erstellung der verschiedenen Inputs
+        createInputs();
 
-        createHalterung();
-        createSchmuckartikel();
-        createKerzenart();
+        Bestellung.addEventListener("change", change);
+        Baumart.addEventListener("change", change);
+        Halterung.addEventListener("change", change);
+        Schmuckartikel.addEventListener("change", change);
+        Kerzentyp.addEventListener("change", change);
+
+        Button.addEventListener("click", DatenPruefen);
     }
+    
 
+    //Erstellen von Inputs für Baumart(Halterung (Radiobutton) und Schmuck/Kerzen (Stepper)   
+    function createInputs(): void {
 
-
-    function createSchmuckartikel(): void {
+        for (let i: number = 0; i < baumart.length; i++) {
+            createRadio(baumart[i]);
+        }
+        for (let i: number = 0; i < halterung.length; i++) {
+            createRadio2(halterung[i]);
+        }
         for (let i: number = 0; i < schmuckartikel.length; i++) {
-            createInput(schmuckartikel[i]);
+            createStepper(schmuckartikel[i]);
+        }
+        for (let i: number = 0; i < kerzentyp.length; i++) {
+            createStepper2(kerzentyp[i]);
         }
     }
-    function createInput(_schmuck: string): void {
-        let label: HTMLLabelElement = document.createElement("label");
+
+    //Funktionen um jeweilige Inputs (Stepper, Radiobuttons) zu erstellen    
+    function createStepper(_schmuck: string): void {
+
         let input: HTMLInputElement = document.createElement("input");
+        let label: HTMLLabelElement = document.createElement("label");
+
         label.innerText = _schmuck;
         label.appendChild(input);
         input.type = "number";
         input.min = "0";
-        input.max = "100";
         input.value = "0";
-        label.id = _schmuck;
-        schmuck.appendChild(label);
-        inputSchmuckartikel.push(input);
+        input.name = _schmuck;
+
+        Schmuckartikel.appendChild(label);
+        schmuckInput.push(input);
     }
 
+    function createStepper2(_kerzen: string): void {
 
-    function createKerzenart(): void {
-        for (let i: number = 0; i < kerzenart.length; i++) {
-            createInput2(kerzenart[i]);
-        }
-    }
-    function createInput2(_kerzen: string): void {
-        let label: HTMLLabelElement = document.createElement("label");
         let input: HTMLInputElement = document.createElement("input");
+        let label: HTMLLabelElement = document.createElement("label");
+
         label.innerText = _kerzen;
         label.appendChild(input);
-        input.type = "number"; //Art des Inputs
+        input.type = "number";
         input.min = "0";
-        input.max = "100";
         input.value = "0";
-        label.id = _kerzen;
-        kerzen.appendChild(label);
-        inputKerzenart.push(input);
+        input.name = _kerzen;
+
+        Kerzentyp.appendChild(label);
+        kerzentypInput.push(input);
     }
 
 
-    function createHalterung(): void {
-        for (let i: number = 0; i < halterungen.length; i++) {
-            createRadio(halterungen[i]);
-        }
-    }
-    function createRadio(_radiobutton: string): void {
-        let label: HTMLLabelElement = document.createElement("label");
+    function createRadio(_baum: string): void {
+
         let input: HTMLInputElement = document.createElement("input");
-        label.innerText = _radiobutton;
+        let label: HTMLLabelElement = document.createElement("label");
+
+        label.innerText = _baum;
         label.appendChild(input);
-        input.type = "radio"; //Art des Inputs
-        input.name = "Radiobutton";
-        label.id = _radiobutton;
-        halterung.appendChild(label);
-        inputHalterungen.push(input);
+        input.type = "radio";
+        input.required = true;
+        input.name = "baum";
+        input.value = _baum;
+
+        Baumart.appendChild(label);
+        baumartInput.push(input);
     }
 
 
-    //Ausgewählte Produkte inkl. Preis in der Bestellübersicht anzeigen
-    function changeAuswahluebersicht(_summe: number): void {
-        let BestellungUebersicht: HTMLElement = document.getElementById("auswahl");
-        BestellungUebersicht.innerText = "";
+    function createRadio2(_behaelter: string): void {
 
-        for (let i: number = 0; i < inputHalterungen.length; i++) {
-            if (inputHalterungen[i].checked) {
-                BestellungUebersicht.innerText += halterungen[i] + "\n";
-            }
-        }
+        let input: HTMLInputElement = document.createElement("input");
+        let label: HTMLLabelElement = document.createElement("label");
 
-        for (let i: number = 0; i < inputSchmuckartikel.length; i++) {
-            if (parseInt(inputSchmuckartikel[i].value) > 0) {
-                BestellungUebersicht.innerText += schmuckartikel[i] + " " + (parseInt(inputSchmuckartikel[i].value) * 1) + " Euro" + "\n";
-            }
-        }
+        label.innerText = _behaelter;
+        label.appendChild(input);
+        input.type = "radio";
+        input.required = true;
+        input.name = "behaelter";
+        input.value = _behaelter;
 
-        for (let i: number = 0; i < inputKerzenart.length; i++) {
-            if (parseInt(inputKerzenart[i].value) > 0) {
-                BestellungUebersicht.innerText += kerzenart[i] + " " + (parseInt(inputKerzenart[i].value) * 1) + " Euro" + "\n";
-            }
-        }
-
-        //Summe im HTML
-        let summeHtml: HTMLElement = document.getElementById("summe");
-        summeHtml.innerText = _summe.toString() + " Euro";
+        Halterung.appendChild(label);
+        halterungInput.push(input);
     }
 
 
+    //Veränderung der Auswahl   
     function change(): void {
+
         let summe: number = 0;
 
-        for (let i: number = 0; i < inputSchmuckartikel.length; i++) {
-            summe += parseInt(inputSchmuckartikel[i].value);
+        for (let i: number = 0; i < baumartInput.length; i++) {
+            if (baumartInput[i].checked)
+            { summe += 50; }
+        }
+        for (let i: number = 0; i < halterungInput.length; i++) {
+            if (halterungInput[i].checked)
+            { summe += 5; }
+        }
+        for (let i: number = 0; i < schmuckInput.length; i++) {
+            summe += parseInt(schmuckInput[i].value);
+        }
+        for (let i: number = 0; i < kerzentypInput.length; i++) {
+            summe += parseInt(kerzentypInput[i].value);
         }
 
-        for (let i: number = 0; i < inputKerzenart.length; i++) {
-            summe += parseInt(inputKerzenart[i].value);
+        BestellungAnzeigen(summe);
+    }
+    
+
+    //Bestellübersicht
+    function BestellungAnzeigen(_summe: number): void {
+
+        document.getElementById("Baumartwahl").innerText = "";
+        document.getElementById("Halterungswahl").innerText = "";
+        document.getElementById("Schmuckartikelwahl").innerText = "";
+        document.getElementById("Kerzentypwahl").innerText = "";
+
+
+        for (let i: number = 0; i < baumartInput.length; i++) {
+            if (baumartInput[i].checked) {
+                document.getElementById("Baumartwahl").innerText += baumart[i] + " : 50 Euro" + "\n";
+            }
+        }
+        for (let i: number = 0; i < halterungInput.length; i++) {
+            if (halterungInput[i].checked) {
+                document.getElementById("Halterungswahl").innerText += halterung[i] + " : 5 Euro" + "\n";
+            }
+        }
+        for (let i: number = 0; i < schmuckInput.length; i++) {
+            if (parseInt(schmuckInput[i].value) > 0) {
+                document.getElementById("Schmuckartikelwahl").innerText += schmuckartikel[i] + " " + ": " + (parseInt(schmuckInput[i].value) * 1) + "x 1 Euro" + "\n";
+            }
+        }
+        for (let i: number = 0; i < kerzentypInput.length; i++) {
+            if (parseInt(kerzentypInput[i].value) > 0) {
+                document.getElementById("Kerzentypwahl").innerText += kerzentyp[i] + " " + ": " + (parseInt(kerzentypInput[i].value) * 1) + "x 1 Euro" + "\n";
+            }
         }
 
-        changeAuswahluebersicht(summe);
+        //Anzeigen der Gesamtsumme
+        document.getElementById("Summe").innerText = _summe.toString() + " Euro";
     }
 
 
-    //Bestellung wird auf Vollständigkeit geprüft
-    function bestellungPruefen(): void {
-        let pruefen: string[] = ["Folgende Eingaben fehlen: \n"];
+    //Bei Klick auf den Button werden die eingegeben Daten überprüft und Feebdack gegeben   
+    function DatenPruefen(): void {
 
-        //Name
-        let name: HTMLInputElement = <HTMLInputElement>document.getElementById("name");
-        if (name.validity.valid == false) {
-            pruefen.push("\nName \n");
+        let nachname: HTMLInputElement = <HTMLInputElement>document.getElementById("Nachname");
+        let vorname: HTMLInputElement = <HTMLInputElement>document.getElementById("Vorname");
+        let strasse: HTMLInputElement = <HTMLInputElement>document.getElementById("Strasse");
+        let plz: HTMLInputElement = <HTMLInputElement>document.getElementById("PLZ");
+        let ort: HTMLInputElement = <HTMLInputElement>document.getElementById("Ort");
+
+        if (nachname.checkValidity() == false || vorname.checkValidity() == false || strasse.checkValidity() == false || plz.checkValidity() == false || ort.checkValidity() == false) {
+            alert("Ihre Eingaben sind nicht vollstaendig oder nicht korrekt");
         }
 
-        //Vorname
-        let vorname: HTMLInputElement = <HTMLInputElement>document.getElementById("vorname");
-        if (vorname.validity.valid == false) {
-            pruefen.push("Vorname \n")
-        }
-
-        //Straße
-        let strasse: HTMLInputElement = <HTMLInputElement>document.getElementById("strasse");
-        if (strasse.validity.valid == false) {
-            pruefen.push("Strasse \n");
-        }
-
-        //PLZ
-        let PLZ: HTMLInputElement = <HTMLInputElement>document.getElementById("PLZ");
-        if (PLZ.validity.valid == false) {
-            pruefen.push("PLZ \n");
-        }
-
-        //Ort
-        let ort: HTMLInputElement = <HTMLInputElement>document.getElementById("ort");
-        if (ort.validity.valid == false) {
-            pruefen.push("Ort \n");
-        }
-
-        //Halterungsart
-        let halterungsArt: number = 0;
-        for (let i: number = 0; i < inputHalterungen.length; i++) {
-            if (inputHalterungen[i].checked)
-                halterungsArt += 1;
-        }
-        if (halterungsArt == 0)
-            pruefen.push("Halterungstyp");
-
-        if (pruefen.length > 1) {
-            for (let i: number = 0; i < pruefen.length; i++)
-                pruefen.push
-            alert(pruefen.join(""));
-        }
         else {
-            alert("Vielen Dank, Ihre Bestellung wird verarbeitet!");
+            alert("Vielen Dank, Ihre Bestellung wird nun verarbeitet");
         }
     }
+
 }
