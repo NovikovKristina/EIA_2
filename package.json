@@ -1,0 +1,15 @@
+{
+	"name" : "ServerTest",
+	"version" : "0.0.1",
+	"description" : "Node and server test",
+	"author" : "Kristina Novikov",
+	"main" : "ServerTest.js",
+	"scripts" : {
+		"start" : "node ServerTest.js"
+	},
+	"engines" : {
+		"node" : "6.11.1"
+	},
+	"dependencies" : {
+	}
+}
