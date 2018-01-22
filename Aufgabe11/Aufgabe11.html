@@ -1,0 +1,101 @@
+<!-- Aufgabe: 11
+Name: Kristina Novikov
+Matrikel: 254136
+Datum: 22.01.2018
+Der Code wurde in Zusammenarbeit mit Bersu Inanir erstellt -->
+
+<!DOCTYPE html>
+
+
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>Weihnachtsbaumkonfigurator</title>
+
+<link rel="stylesheet" href="Aufgabe11.css" type="text/css" media="screen" />
+<script src="Aufgabe11.js" type="text/javascript" charset="utf-8"></script>
+</head>
+
+<body>
+
+	<form action="https://eia2-w17-novikovk-node.herokuapp.com" method="get"></form>
+	
+	<header>
+		<div>
+			<img id="tree" src="weihnachtsbaum.png" height="100px" width="100px">
+			<h1> Weihnachtsbaumkonfigurator </h1>
+		</div>
+	</header>
+
+
+    <fieldset id="Bestellung">
+			<legend> Bestellübersicht </legend>
+			<h2>Ihre Auswahl:</h2>			
+			<p class="text">Gewählte Baumart:</p>
+			<p id="Baumartwahl"></p>		
+			<p class="text">Gewählte Halterung:</p>
+			<p id="Halterungswahl"></p>				
+			<p class= "text">Gewählte Schmuckartikel:</p>
+			<p id="Schmuckartikelwahl"></p>
+			<p class= "text">Gewählter Kerzentyp:</p>
+			<p id="Kerzentypwahl"></p>			
+			<hr>
+			<h2>Summe:</h2>
+			<p id="Summe"></p>
+			<button type="submit" id="Button">Bestellung prüfen und abschicken</button>
+		</fieldset>
+	
+	
+		<fieldset id="Baumart">  
+			<legend class="titelkasten"> Baumart </legend>
+		</fieldset>		
+		
+		<fieldset id="Halterung">  	
+			<legend class="titelkasten"> Halterung </legend>
+		</fieldset>	
+		
+		<fieldset id="Schmuckartikel">   
+			<legend class="titelkasten"> Schmuckartikel </legend>
+		</fieldset>
+		
+		<fieldset id="Kerzentyp">   
+			<legend class="titelkasten"> Kerzentyp </legend>
+		</fieldset>		
+				
+		<fieldset id="Lieferoptionen">
+			<legend> Lieferoptionen </legend>
+			<select name="Lieferoptionen" id="Lieferoptionen">
+			<option value="option1" selected>Standard (5 Werktage)</option>
+			<option value="option2">Premium (3 Werktage)</option>
+			<option value="option3">Express (Lieferung am nächsten Werktag)</option>
+			</select>
+		</fieldset>		
+			
+		
+	<fieldset id="Kundendaten">	
+		<legend class="titelkasten">Lieferadresse</legend>
+		Anrede
+		<select name="Anrede" id="Anrede">
+			<option value="Herr" selected>Herr</option>
+			<option value="Frau">Frau</option>
+		</select>
+		<hr>		
+		Name			
+		<input required id="Nachname" class="textfelder" type="text" name="Nachname" placeholder="Claus"/>
+		<hr>		
+		Vorname
+		<input  required id="Vorname" class="textfelder" type="text" name="Vorname" placeholder="Santa"/>
+		<hr>
+		Straße &amp; Hausnummer 
+		<input  required id="Strasse" class="textfelder" type="text" name="Strasse" placeholder="Tähtikuja 1"/>
+		<hr>	
+		Posteitzahl
+		<input pattern="[0-9]{5}" name="plz" title="5-stellige Zahl" required id="PLZ" class="textfelder" name="Postleitzahl" placeholder="96930">
+		<hr>		
+	    Ort
+		<input  required id="Ort" class="textfelder" type="text" name="Ort" placeholder="Arctic Circle"/>
+	</fieldset>
+
+
+</body>
+</html>

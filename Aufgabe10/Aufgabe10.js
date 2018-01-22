@@ -2,7 +2,7 @@
 //Name: Kristina Novikov
 //Matrikel: 254136
 //Datum: 03.01.2018
-//Hiermit versichere ich, dass ich diesen Code selbst geschrieben habe. Er wurde nicht kopiert und auch nicht diktiert.
+//Der Code wurde in Zusammenarbeit mit Bersu Inanir erstellt
 var Weihnachtsbaumkonfigurator;
 (function (Weihnachtsbaumkonfigurator) {
     window.addEventListener("load", init);
@@ -83,18 +83,22 @@ var Weihnachtsbaumkonfigurator;
         let input = document.createElement("input");
         let label = document.createElement("label");
         label.innerText = _baum;
+        //        console.log(_baum);
         label.appendChild(input);
         input.type = "radio";
         input.required = true;
         input.name = "baum";
         input.value = _baum;
+        //        console.log(input);
         Baumart.appendChild(label);
+        console.log(Baumart);
         baumartInput.push(input);
     }
     function createRadio2(_behaelter) {
         let input = document.createElement("input");
         let label = document.createElement("label");
         label.innerText = _behaelter;
+        //        console.log(label);
         label.appendChild(input);
         input.type = "radio";
         input.required = true;
