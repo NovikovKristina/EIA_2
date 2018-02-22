@@ -8,10 +8,6 @@
 namespace Abschlussaufgabe {
 
     export class Balloon extends MovingObjects {
-        
-        w: number = 20;
-        h: number = 20;
-        radius: number = 22;
 
         constructor(_x: number, _y: number) {
             super(_x, _y);

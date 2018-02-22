@@ -8,9 +8,6 @@ var Abschlussaufgabe;
     class Balloon extends Abschlussaufgabe.MovingObjects {
         constructor(_x, _y) {
             super(_x, _y);
-            this.w = 20;
-            this.h = 20;
-            this.radius = 22;
             this.width = 50;
             this.height = 50;
         }
