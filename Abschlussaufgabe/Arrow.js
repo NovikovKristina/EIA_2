@@ -51,13 +51,6 @@ var Abschlussaufgabe;
             }
             return false;
         }
-        //        ballonWasHit(_object: any): boolean {
-        //            let hit = true;
-        //            if (this.y + this.height < _object.y || this.y > _object.y + _object.height || this.x + this.width < _object.x || this.x > _object.x + _object.width) {
-        //                hit = false;
-        //            }
-        //            return hit;
-        //        }
         draw() {
             Abschlussaufgabe.crc2.globalAlpha = 1;
             Abschlussaufgabe.crc2.beginPath();
